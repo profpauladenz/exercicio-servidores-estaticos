@@ -8,12 +8,11 @@ button.addEventListener('click', function () {
         return response.json();
     })
     .then(function (data) {
-        div.textContent = `Title: ${data[0].title}, Body: ${data[0].body}`
-        // let listaOrdenada = "<ol>";
-        
-        for (user in data) {
-            // "<li>" + `Title: ${usuario.title}` + "</li>";
-            // listaOrdenada += 
+        let lista = "<ol>";
+        for (const user of data) {
+            let item = `<li>Title: ${user.title}</li>`;
+            lista += item;
         }
+        div.innerHTML = lista + "</ol>";
     })
 });
