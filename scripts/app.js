@@ -8,14 +8,25 @@ button.addEventListener('click', function () {
         if (response.ok) {
             return response.json();
         } else {
-            throw new Error("Erro");
+            let errorMessage = "Erro: Recurso não encontrado ou servidor não disponível. Tente novamente mais tarde.";
+            throw new Error(errorMessage);
         }
     })
     .then(function (json) {
         let post = Post.fromRaw(json);
         div = post.renderFrom(div);
     })
-    .catch(function (err) {
-        console.log(err);
+    .catch(function (error) {
+        renderError(error);
+        // console.log(error);
     })
 });
+
+function renderError(error) {
+    div.innerHTML = "";
+    
+    let h2 = document.createElement(`h2`);
+    h2.textContent = error;
+    
+    div.appendChild(h2);
+}
