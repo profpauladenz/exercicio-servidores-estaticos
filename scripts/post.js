@@ -7,9 +7,37 @@ class Post {
         this.body = body;
     }
 
-    static fromRaw(json) {
-        return new Post(json.userId, json.id, json.title, json.body);
+    static fromRaw(raw) {
+        return new Post(raw.userId, raw.id, raw.title, raw.body);
     }
+
+    renderFrom(container) {
+        container.innerHTML = "";
+
+        let h2 = document.createElement(`h2`);
+        h2.textContent = this.userId;
+
+        let pTitle = document.createElement(`p`);
+        pTitle.textContent = this.titulo;
+
+        let pBody = document.createElement(`p`);
+        pBody.textContent = this.body;
+
+        container.appendChild(h2);
+        container.appendChild(pTitle);
+        container.appendChild(pBody);
+    }
+
+    // renderFrom(container) {
+    //     container.innerHTML =
+    //     `
+    //      <div>
+    //         <h2>${this.userId}</h2>
+    //         <p>${this.title}</p>
+    //         <p>${this.body}</p
+    //      </div>
+    //     `
+    // }
 }
 
 // {
