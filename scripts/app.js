@@ -8,7 +8,9 @@ button.addEventListener('click', function () {
         return response.json();
     })
     .then(function (json) {
-        div.innerText = json.body;
+        let post = new Post(json.userId, json.id, json.title, json.body);
+        console.log(post);
+        // div.innerText = json.body;
         // div.innerText = JSON.stringify(json, null, 0);
     })
 });
