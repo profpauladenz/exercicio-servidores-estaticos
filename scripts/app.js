@@ -8,8 +8,11 @@ button.addEventListener('click', function () {
         return response.json();
     })
     .then(function (json) {
-        div.textContent = json;
-        // div.textContent = JSON.stringify(json, null, 2); // JSON Puro
-        // div.textContent = json.title;
+        let post = Post.fromRaw(json);
+        div = post.renderFrom(div);
+
+        // console.log(post);
+        // div.innerText = json.body;
+        // div.innerText = JSON.stringify(json, null, 0);
     })
 });
