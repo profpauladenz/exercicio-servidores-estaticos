@@ -1,4 +1,5 @@
 let button = document.getElementById('btnUsers');
+let div = document.getElementById('out');
 
 button.addEventListener('click', function () {
     // Assíncrona Async Chaining
@@ -7,6 +8,6 @@ button.addEventListener('click', function () {
         return response.json();
     })
     .then(function (json) {
-        console.log(json);
+        
     })
 });
