@@ -8,12 +8,14 @@ button.addEventListener('click', function () {
         if (response.ok) {
             return response.json();
         } else {
-            console.log("Erro");
+            throw new Error("Erro");
         }
-        
     })
     .then(function (json) {
         let post = Post.fromRaw(json);
         div = post.renderFrom(div);
+    })
+    .catch(function (err) {
+        console.log(err);
     })
 });
