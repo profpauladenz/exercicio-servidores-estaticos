@@ -3,16 +3,13 @@ let div = document.getElementById('out');
 
 button.addEventListener('click', function () {
     // Assíncrona Async Chaining
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
     .then(function (response) {
         return response.json();
     })
-    .then(function (data) {
-        let lista = "<ol>";
-        for (const user of data) {
-            let item = `<li>Title: ${user.title}</li>`;
-            lista += item;
-        }
-        div.innerHTML = lista + "</ol>";
+    .then(function (json) {
+        div.textContent = json;
+        // div.textContent = JSON.stringify(json, null, 2); // JSON Puro
+        // div.textContent = json.title;
     })
 });
