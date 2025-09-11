@@ -6,6 +6,10 @@ class Post {
         this.title = title;
         this.body = body;
     }
+
+    static fromRaw(json) {
+        return new Post(json.userId, json.id, json.title, json.body);
+    }
 }
 
 // {
