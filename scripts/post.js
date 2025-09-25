@@ -18,7 +18,7 @@ class Post {
         h2.textContent = this.userId;
 
         let pTitle = document.createElement(`p`);
-        pTitle.textContent = this.titulo;
+        pTitle.textContent = this.title;
 
         let pBody = document.createElement(`p`);
         pBody.textContent = this.body;
@@ -26,6 +26,8 @@ class Post {
         container.appendChild(h2);
         container.appendChild(pTitle);
         container.appendChild(pBody);
+
+        return container;
     }
 
     // renderFrom(container) {

@@ -3,7 +3,7 @@ let div = document.getElementById('out');
 
 button.addEventListener('click', function () {
     // Assíncrona Async Chaining
-    fetch('https://jsonplaceholder.typicode.com/posts/101')
+    fetch('https://jsonplaceholder.typicode.com/posts/100')
     .then(function (response) {
         if (response.ok) {
             return response.json();
